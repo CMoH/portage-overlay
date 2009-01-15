@@ -6,7 +6,7 @@
  	
 -		rra_contact_to_vcard(RRA_CONTACT_ID_UNKNOWN,data,data_size,&vcard,RRA_CONTACT_VERSION_3_0);
 +		if (!rra_contact_to_vcard(RRA_CONTACT_ID_UNKNOWN,data,data_size,&vcard,RRA_CONTACT_VERSION_3_0)) {
-+		  osync_context_report_error(ctx, 1, "contact_to_vcard fail. id=%i",ids[i]);			
++//		  osync_context_report_error(ctx, 1, "contact_to_vcard fail. id=%i",ids[i]);			
 +		  continue;
 +		}
  		
