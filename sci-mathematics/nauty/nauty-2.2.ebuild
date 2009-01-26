@@ -20,3 +20,28 @@ src_compile() {
 	econf || die "Configure failed"
 	emake || die "Build failed"
 }
+
+src_install() {
+	cd ${MY_P}
+	doexe amtog
+	doexe biplabg
+	doexe catg
+	doexe complg
+	doexe copyg
+	doexe countg
+	doexe deledgeg
+	doexe directg
+	doexe dreadnaut
+	doexe dreadnautB
+	doexe dretog
+	doexe genbg
+	doexe geng
+	doexe genrang
+	doexe labelg
+	doexe listg
+	doexe multig
+	doexe newedgeg
+	doexe pickg
+	doexe shortg
+	doexe showg
+}
