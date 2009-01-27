@@ -23,6 +23,7 @@ src_compile() {
 
 src_install() {
 	cd ${MY_P}
+	exeinto /usr/bin
 	doexe amtog
 	doexe biplabg
 	doexe catg
