@@ -10,7 +10,7 @@ SRC_URI="http://cs.anu.edu.au/~bdm/nauty/${MY_P}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
-IUSE=""
+IUSE="doc"
 
 DEPEND=""
 RDEPEND=""
@@ -44,4 +44,10 @@ src_install() {
 	doexe pickg
 	doexe shortg
 	doexe showg
+	if use doc ; then
+		dodoc README
+		dodoc gread.me
+		dodoc formats.txt
+		dodoc nug.pdf
+	fi
 }
