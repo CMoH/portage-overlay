@@ -1,0 +1,22 @@
+Index: configure.ac
+===================================================================
+--- ./configure.ac	(revision 572)
++++ ./configure.ac	(working copy)
+@@ -102,7 +102,7 @@
+ 		])
+ 		AC_SUBST(pulse_CFLAGS)
+ 		AC_SUBST(pulse_LIBS)
+-	],[]
++	]
+ )
+ AS_IF(
+ 	[test "x$with_alsa" != xno],
+@@ -117,7 +117,7 @@
+ 		])
+ 		AC_SUBST(alsa_CFLAGS)
+ 		AC_SUBST(alsa_LIBS)
+-	],[]
++	]
+ )
+ 
+ PKG_CHECK_MODULES(gthread, gthread-2.0 >= 2.20.1)

@@ -23,11 +23,12 @@ DEPEND="${DEPEND}
 
 src_unpack() {
 	subversion_src_unpack
+	cd ${S} && epatch ${FILESDIR}/autoconf-failure.patch
 	cd ${S} && autoreconf
 }
 
 src_configure() {
-	local myconf="$(use_enable alsa) $(use_enable pulseaudio)"
+	local myconf="$(use_with alsa) $(use_with pulseaudio)"
 	econf ${myconf} || die "configure failed"
 }
 
