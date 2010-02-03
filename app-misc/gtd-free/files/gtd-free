@@ -1,0 +1,33 @@
+#!/bin/sh
+# Launches GTD-Free from the jar using the system VM
+# Uses $HOME/.gtd-free as data directory if no argument given
+
+function usage () {
+        echo "You can manually specify a storage directory using: " 
+        echo "  ${basename $0} /path/to/dir"
+        echo "Default is: \$HOME/.gtd-free = $HOME/.gtd-free"
+        echo 
+        echo "Note that specifying a folder will create it if it does not exist"
+}
+
+if [ "x$1" != "x" ] ; then
+    DIR=$1
+    if [ ! -d $DIR ] ; then
+        mkdir -p $DIR
+        if [ ! -d $DIR ] ; then
+            echo "error: failed to create data directory $DIR"
+            usage
+            exit 2
+        else
+            /usr/bin/java -jar /opt/gtd-free/gtd-free-0.4.3.jar -data $DIR
+        fi
+    fi
+else
+    if [ "x$HOME" == "x" ] ; then
+        echo "error: cannot start GTD-Free without a proper storage directory and no \$HOME environment variable"
+        usage
+        exit 1
+    else
+        /usr/bin/java -jar /opt/gtd-free/gtd-free-0.4.3.jar
+    fi
+fi

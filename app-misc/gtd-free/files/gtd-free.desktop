@@ -1,0 +1,21 @@
+[Desktop Entry]
+Categories=Office;Calendar;ProjectManagement;Utility;Java;
+Comment[en_US]=Free GTD-based task manager written in Java
+Comment=Free GTD-based task manager written in Java
+Exec=/usr/bin/gtd-free
+GenericName[en_US]=GTD-Free
+GenericName=GTD-Free
+Icon=/opt/gtd-free/gtd-free.png
+MimeType=
+Name[en_US]=GTD-Free
+Name=GTD-Free
+Path=$HOME
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+X-DBUS-ServiceName=
+X-DBUS-StartupType=
+X-DCOP-ServiceType=
+X-KDE-SubstituteUID=false
+X-KDE-Username=
