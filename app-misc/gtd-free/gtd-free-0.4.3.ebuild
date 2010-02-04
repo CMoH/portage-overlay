@@ -5,10 +5,9 @@
 DESCRIPTION="GTD-Free"
 HOMEPAGE="http://TODO..."
 
-DOWNLOAD_URL="http://java.sun.com/products/sjwtoolkit/download.html"
-BINARY="gtd-free-0.4.3.jar"
+BINARY="${P}.jar"
+SRC_URI="mirror://sourceforge/${PN}/${BINARY}"
 
-SRC_URI="${BINARY}"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="amd64 x86"
