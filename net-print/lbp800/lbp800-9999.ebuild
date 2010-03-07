@@ -1,10 +1,13 @@
+inherit subversion
+
 DESCRIPTION="CANON LBP-800 Linux driver"
 HOMEPAGE="http://www.veneto.com/lbp800/lbp800.html"
-SRC_URI="http://www.veneto.com/lbp800/${P}.tar.gz"
+SRC_URI=""
+ESVN_REPO_URI="https://www.cheepee.homedns.org/svn/personal/trunk/lbp800"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="x86"
+KEYWORDS=""
 IUSE=""
 
 RDEPEND="net-print/cups"
