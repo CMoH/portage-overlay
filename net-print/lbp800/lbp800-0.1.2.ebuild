@@ -14,8 +14,8 @@ src_install() {
 	dodoc COPYING README SPECS THANKS
 	dobin bin/Release/lbp800 lbp800-print foo2lbp800-wrapper
 
-	insinto /usr/lib/cups/backend
-	doins bin/Release/parcapt
+	exeinto /usr/lib/cups/backend
+	doexe bin/Release/parcapt
 
 	insinto /usr/share/ppd/custom/
 	doins ppd/Canon-LBP-800.ppd
