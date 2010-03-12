@@ -35,7 +35,10 @@ RDEPEND="${DEPEND}
 
 src_unpack() {
 	unpack ${A}
-	cd ${S} && epatch ${FILESDIR}/ocropus-leptonica-${PV}.patch
+	cd ${S} && {
+		epatch ${FILESDIR}/ocropus-leptonica-${PV}.patch
+		epatch ${FILESDIR}/genAM.py.patch
+	}
 }
 
 src_compile() {
@@ -49,12 +52,20 @@ src_compile() {
 			$(use_with sdl SDL) \
 			$(use_with openmp OpenMP) \
 			|| die "Configure failed"
-# todo: --with-fst --without-leptonica
+# todo: --with-fst
+# todo: aspell?
 	}
 
 	cd ${S}/ocropus && emake || die "Compile failed"
 }
 
+src_test() {
+	cd ${S}/ocropus/utilities
+	./test-compile || die "Tests failed to compile"
+	./test-run || die "At least one test failed"
+}
+
 src_install() {
-	cd ${S}/ocropus && emake install || die "Install failed"
+	cd ${S}/ocropus && emake DESTDIR=${D} install || die "Install failed"
+	dodoc CHANGES README
 }
