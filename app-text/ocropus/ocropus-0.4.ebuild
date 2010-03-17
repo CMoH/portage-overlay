@@ -36,6 +36,7 @@ RDEPEND="${DEPEND}
 src_unpack() {
 	unpack ${A}
 	cd ${S} && {
+		epatch ${FILESDIR}/gentoo-location-${PV}.patch
 		epatch ${FILESDIR}/ocropus-leptonica-${PV}.patch
 		epatch ${FILESDIR}/genAM.py.patch
 	}
@@ -45,8 +46,9 @@ src_compile() {
 	cd ${S}/ocropus && {
 		python genAM.py > Makefile.am || die "Configure failed"
 		autoreconf || die "Configure failed"
-		econf \
+		econf  \
 			leptheaders=/usr/include/liblept \
+			--with-tesseract=/usr
 			--with-leptonica=/usr \
 			--with-iulib=/usr \
 			$(use_with sdl SDL) \
@@ -68,4 +70,6 @@ src_test() {
 src_install() {
 	cd ${S}/ocropus && emake DESTDIR=${D} install || die "Install failed"
 	dodoc CHANGES README
+	gunzip -f ${D}/usr/share/ocropus/models/default.fst.gz
+	gunzip -f ${D}/usr/share/ocropus/models/ocr-dict-case.fst.gz
 }

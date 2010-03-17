@@ -1,0 +1,47 @@
+diff -aur ocropus-0.4-orig/ocropus/ocr-commands/ocr-commands.cc ocropus-0.4/ocropus/ocr-commands/ocr-commands.cc
+--- ocropus-0.4-orig/ocropus/ocr-commands/ocr-commands.cc	2010-03-18 01:35:03.000000000 +0200
++++ ocropus-0.4/ocropus/ocr-commands/ocr-commands.cc	2010-03-18 01:36:37.000000000 +0200
+@@ -59,7 +59,7 @@
+     param_float maxheight("max_line_height",300,"maximum line height");
+     param_float maxaspect("max_line_aspect",0.5,"maximum line aspect ratio");
+ 
+-#define DEFAULT_DATA_DIR "/usr/local/share/ocropus/models/"
++#define DEFAULT_DATA_DIR "/usr/share/ocropus/models/"
+ 
+     param_string cmodel("cmodel",DEFAULT_DATA_DIR "default.model","character model used for recognition");
+     param_string lmodel("lmodel",DEFAULT_DATA_DIR "default.fst","language model used for recognition");
+diff -aur ocropus-0.4-orig/ocropus/uninstall ocropus-0.4/ocropus/uninstall
+--- ocropus-0.4-orig/ocropus/uninstall	2010-03-18 01:35:03.000000000 +0200
++++ ocropus-0.4/ocropus/uninstall	2010-03-18 01:41:46.000000000 +0200
+@@ -1,5 +1,5 @@
+ #!/bin/sh -x
+-prefix=/usr/local
++prefix=/usr
+ rm -rf ${prefix}/include/ocropus
+ rm -rf ${prefix}/lib/libocropus.*
+ rm -rf ${prefix}/bin/ocropus
+Only in ocropus-0.4/ocropus: uninstall~
+diff -aur ocropus-0.4-orig/ocropus/utilities/align-all ocropus-0.4/ocropus/utilities/align-all
+--- ocropus-0.4-orig/ocropus/utilities/align-all	2010-03-18 01:35:03.000000000 +0200
++++ ocropus-0.4/ocropus/utilities/align-all	2010-03-18 01:42:01.000000000 +0200
+@@ -6,5 +6,5 @@
+     echo
+     echo $base
+     echo
+-    bpnet=/usr/local/share/ocropus/models/neural-net-file.nn ocroscript align-transcription --cut $image $base.txt $base.cseg.png $base.rseg.png $base.costs
++    bpnet=/usr/share/ocropus/models/neural-net-file.nn ocroscript align-transcription --cut $image $base.txt $base.cseg.png $base.rseg.png $base.costs
+ done
+Only in ocropus-0.4/ocropus/utilities: align-all~
+diff -aur ocropus-0.4-orig/ocropus/utilities/process-volume ocropus-0.4/ocropus/utilities/process-volume
+--- ocropus-0.4-orig/ocropus/utilities/process-volume	2010-03-18 01:35:03.000000000 +0200
++++ ocropus-0.4/ocropus/utilities/process-volume	2010-03-18 01:42:07.000000000 +0200
+@@ -19,7 +19,7 @@
+     regex=r'^([A-Za-z][a-z-]*[,.;?!-]?|[0-9]+)$',
+     dict="/usr/share/dict/words")
+ 
+-nnet_file = "/usr/local/share/ocropus/models/neural-net-file.nn"
++nnet_file = "/usr/share/ocropus/models/neural-net-file.nn"
+ 
+ def base(s): 
+     return re.sub(r'\.\w+$','',s)
+Only in ocropus-0.4/ocropus/utilities: process-volume~
