@@ -31,7 +31,6 @@ diff -aur ocropus-0.4-orig/ocropus/utilities/align-all ocropus-0.4/ocropus/utili
 -    bpnet=/usr/local/share/ocropus/models/neural-net-file.nn ocroscript align-transcription --cut $image $base.txt $base.cseg.png $base.rseg.png $base.costs
 +    bpnet=/usr/share/ocropus/models/neural-net-file.nn ocroscript align-transcription --cut $image $base.txt $base.cseg.png $base.rseg.png $base.costs
  done
-Only in ocropus-0.4/ocropus/utilities: align-all~
 diff -aur ocropus-0.4-orig/ocropus/utilities/process-volume ocropus-0.4/ocropus/utilities/process-volume
 --- ocropus-0.4-orig/ocropus/utilities/process-volume	2010-03-18 01:35:03.000000000 +0200
 +++ ocropus-0.4/ocropus/utilities/process-volume	2010-03-18 01:42:07.000000000 +0200
@@ -44,4 +43,4 @@ diff -aur ocropus-0.4-orig/ocropus/utilities/process-volume ocropus-0.4/ocropus/
  
  def base(s): 
      return re.sub(r'\.\w+$','',s)
-Only in ocropus-0.4/ocropus/utilities: process-volume~
+
