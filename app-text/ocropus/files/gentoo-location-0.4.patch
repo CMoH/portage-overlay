@@ -1,3 +1,4 @@
+Only in ocropus-0.4-orig/ocropus: autom4te.cache
 diff -aur ocropus-0.4-orig/ocropus/ocr-commands/ocr-commands.cc ocropus-0.4/ocropus/ocr-commands/ocr-commands.cc
 --- ocropus-0.4-orig/ocropus/ocr-commands/ocr-commands.cc	2010-03-18 01:35:03.000000000 +0200
 +++ ocropus-0.4/ocropus/ocr-commands/ocr-commands.cc	2010-03-18 01:36:37.000000000 +0200
@@ -20,7 +21,6 @@ diff -aur ocropus-0.4-orig/ocropus/uninstall ocropus-0.4/ocropus/uninstall
  rm -rf ${prefix}/include/ocropus
  rm -rf ${prefix}/lib/libocropus.*
  rm -rf ${prefix}/bin/ocropus
-Only in ocropus-0.4/ocropus: uninstall~
 diff -aur ocropus-0.4-orig/ocropus/utilities/align-all ocropus-0.4/ocropus/utilities/align-all
 --- ocropus-0.4-orig/ocropus/utilities/align-all	2010-03-18 01:35:03.000000000 +0200
 +++ ocropus-0.4/ocropus/utilities/align-all	2010-03-18 01:42:01.000000000 +0200
@@ -43,4 +43,15 @@ diff -aur ocropus-0.4-orig/ocropus/utilities/process-volume ocropus-0.4/ocropus/
  
  def base(s): 
      return re.sub(r'\.\w+$','',s)
-
+diff -aur ocropus-0.4-orig/ocropus/utilities/test-compile ocropus-0.4/ocropus/utilities/test-compile
+--- ocropus-0.4-orig/ocropus/utilities/test-compile	2010-03-18 01:35:03.000000000 +0200
++++ ocropus-0.4/ocropus/utilities/test-compile	2010-03-18 02:18:22.000000000 +0200
+@@ -16,7 +16,7 @@
+ 
+ section TEST-COMPILE
+ # build ocropus with a minimal configuration
+-verifyCommand "./configure --without-fst --without-leptonica --without-SDL" 0
++verifyCommand "./configure --without-fst --without-leptonica --without-SDL --with-iulib=/usr" 0
+ if [ $? -ne 0 ]; then
+     retvalue=$((retvalue + 1))
+ fi
