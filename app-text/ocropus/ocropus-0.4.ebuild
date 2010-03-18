@@ -48,7 +48,7 @@ src_compile() {
 		autoreconf || die "Configure failed"
 		econf  \
 			leptheaders=/usr/include/liblept \
-			--with-tesseract=/usr
+			--with-tesseract=/usr \
 			--with-leptonica=/usr \
 			--with-iulib=/usr \
 			$(use_with sdl SDL) \
