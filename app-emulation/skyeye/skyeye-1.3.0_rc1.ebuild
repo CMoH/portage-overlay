@@ -1,3 +1,5 @@
+inherit eutils autotools
+
 DESCRIPTION="an ARM embedded hardware simulator"
 HOMEPAGE="http://www.skyeye.org/"
 SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
@@ -15,14 +17,22 @@ RDEPEND="sys-libs/ncurses
 DEPEND="${RDEPEND}
 	dev-util/pkgconfig"
 
+src_unpack() {
+	unpack ${A}
+	cd "${S}"
+	epatch "${FILESDIR}/${P}-install.patch"
+	eautoreconf
+}
+
 src_compile() {
 	# econf $(use_enable lcd)
 	econf $(use_enable lcd)
 	emake lib build_lib
 	emake
 	# if use qt4 ; then
-	# 	cd ${S}/${P}/gui/qt4_src && make mocclean
-	# 	emake skyeye_gui
+	# 	# clean-up moc files from previous build
+	# 	cd "${S}/gui/qt4_src" && make clean
+	# 	cd "${S}" && emake skyeye_gui
 	# fi
 }
 
