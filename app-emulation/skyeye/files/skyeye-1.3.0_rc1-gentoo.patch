@@ -1,0 +1,56 @@
+diff -aur skyeye-1.3.0_rc1-orig/Makefile.am skyeye-1.3.0_rc1/Makefile.am
+--- skyeye-1.3.0_rc1-orig/Makefile.am	2010-04-01 13:04:06.316812629 +0300
++++ skyeye-1.3.0_rc1/Makefile.am	2010-04-01 13:03:10.000000000 +0300
+@@ -35,32 +35,33 @@
+ endif
+ 
+ skyeye_gui:
+-	cd gui/qt4_src && rm -f skyeye_gui && make
++	cd gui/qt4_src && rm -f skyeye_gui && $(MAKE)
+ 	cp -f gui/qt4_src/skyeye-gui $(prefix)/bin/
+ lib:
+-	cd third-party/libiberty && ./configure --prefix=$(prefix) --enable-shared ;make;
+-	cd third-party/bfd/ && ./configure --prefix=$(prefix) --disable-werror --enable-shared --enable-targets=all;make;
+-	cd third-party/opcodes/ && ./configure --prefix=$(prefix) --disable-werror --enable-shared --enable-targets=all;make;
+-	cd third-party/readline/ && ./configure --prefix=$(prefix) --enable-shared;make;
++	cd third-party/libiberty && ./configure --prefix=$(prefix) --enable-shared
++	cd third-party/bfd/ && ./configure --prefix=$(prefix) --disable-werror --enable-shared --enable-targets=all
++	cd third-party/opcodes/ && ./configure --prefix=$(prefix) --disable-werror --enable-shared --enable-targets=all
++	cd third-party/readline/ && ./configure --prefix=$(prefix) --enable-shared
+ build_lib:
+-	cd third-party/libiberty && make;
+-	cd third-party/bfd/ && make;
+-	cd third-party/opcodes/ && make;
+-	cd third-party/readline/ && make;
++	cd third-party/libiberty && $(MAKE)
++	cd third-party/bfd/ && $(MAKE)
++	cd third-party/opcodes/ && $(MAKE)
++	cd third-party/readline/ && $(MAKE)
+ install_lib:
+-	cd third-party/libiberty && make install
+-	cd third-party/bfd/ && make install
+-	cd third-party/opcodes/ && make install
+-	cd third-party/readline/ && make install
++	cd third-party/libiberty && $(MAKE) install
++	cd third-party/bfd/ && $(MAKE) install
++	cd third-party/opcodes/ && $(MAKE) install
++	cd third-party/readline/ && $(MAKE) install
+ 
+ clean_lib:
+-	cd third-party/libiberty && make distclean
+-	cd third-party/bfd/ && make distclean
+-	cd third-party/opcodes/ && make distclean
+-	cd third-party/readline/ && make distclean
+-install-data-hook:
+-	rm -f -r $(prefix)/testsuite && mkdir $(prefix)/testsuite
+-	cp -a $(top_srcdir)/testsuite/arm_hello $(prefix)/testsuite/arm_hello/
++	cd third-party/libiberty && $(MAKE) distclean
++	cd third-party/bfd/ && $(MAKE) distclean
++	cd third-party/opcodes/ && $(MAKE) distclean
++	cd third-party/readline/ && $(MAKE) distclean
++
++# install-data-hook:
++# 	rm -f -r $(prefix)/testsuite && mkdir $(prefix)/testsuite
++# 	cp -a $(top_srcdir)/testsuite/arm_hello $(prefix)/testsuite/arm_hello/
+ #	rm -f -r $(prefix)/conf && mkdir $(prefix)/conf
+ #	cp -a $(top_srcdir)/conf/* $(prefix)/conf

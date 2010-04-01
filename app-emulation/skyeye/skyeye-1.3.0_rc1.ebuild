@@ -20,14 +20,15 @@ DEPEND="${RDEPEND}
 src_unpack() {
 	unpack ${A}
 	cd "${S}"
-	epatch "${FILESDIR}/${P}-install.patch"
+	epatch "${FILESDIR}/${P}-gentoo.patch"
 	eautoreconf
 }
 
 src_compile() {
 	# econf $(use_enable lcd)
-	econf $(use_enable lcd)
-	emake lib build_lib
+	econf
+	emake lib
+	emake build_lib
 	emake
 	# if use qt4 ; then
 	# 	# clean-up moc files from previous build
@@ -41,6 +42,6 @@ src_install() {
 	# if use qt4 ; then
 	# 	dobin binary/skyeye-gui || die "skyeye-gui"
 	# fi
-	emake PREFIX="${D}" DESTDIR="${D}" install
+	emake PREFIX="${D}" DESTDIR="${D}" install_lib install
 	dodoc ChangeLog README
 }
