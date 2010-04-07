@@ -9,14 +9,19 @@ SRC_URI="http://pinky.cheepee.homedns.org/~cipi/${MY_P}.tar.bz2"
 LICENSE="Stantum"
 SLOT="0"
 KEYWORDS="x86 amd64"
-IUSE="doc examples multilib"
+IUSE="X doc examples multilib"
 
 DEPEND="virtual/libusb:0
 	amd64? (
 		app-emulation/emul-linux-x86-baselibs
-		X? (
+		examples? ( X? (
 		   app-emulation/emul-linux-x86-xlibs[opengl]
-	) )"
+		) )
+	)
+	!amd64? (
+		examples? ( X? ( virtual/opengl ) )
+	)
+"
 RDEPEND="${DEPEND}"
 
 QA_TEXTRELS="usr/lib32/libSMT.so"
