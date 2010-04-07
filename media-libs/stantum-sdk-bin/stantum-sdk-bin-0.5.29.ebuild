@@ -14,8 +14,9 @@ IUSE="doc examples multilib"
 DEPEND="virtual/libusb:0
 	amd64? (
 		app-emulation/emul-linux-x86-baselibs
-		>=sys-kernel/linux-headers-2.6
-	)"
+		X? (
+		   app-emulation/emul-linux-x86-xlibs[opengl]
+	) )"
 RDEPEND="${DEPEND}"
 
 QA_TEXTRELS="usr/lib32/libSMT.so"
@@ -38,6 +39,7 @@ src_install() {
 
 	if use examples ; then
 		dobin libSMT/bin/linux/HelloCursors
-		dobin libSMT/bin/linux/Circles
+		use X && dobin libSMT/bin/linux/Circles
+
 	fi
 }
