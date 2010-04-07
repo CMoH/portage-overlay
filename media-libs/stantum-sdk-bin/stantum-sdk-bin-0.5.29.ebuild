@@ -1,3 +1,5 @@
+inherit multilib
+
 MY_P=stantum-0.5.29-mdk10.1
 
 DESCRIPTION="Stantum SDK CD_0.5.29_MDK10.1"
@@ -6,15 +8,23 @@ SRC_URI="http://pinky.cheepee.homedns.org/~cipi/${MY_P}.tar.bz2"
 
 LICENSE="Stantum"
 SLOT="0"
-KEYWORDS="x86"
-IUSE="doc"
-# IUSE="doc examples"
+KEYWORDS="x86 amd64"
+IUSE="doc multilib"
+# IUSE="doc examples multilib"
 
-DEPEND="virtual/libusb:0"
+DEPEND="virtual/libusb:0
+	amd64? (
+		app-emulation/emul-linux-x86-baselibs
+		>=sys-kernel/linux-headers-2.6
+	)"
 RDEPEND="${DEPEND}"
+
+QA_TEXTRELS="usr/lib32/libSMT.so"
 
 src_install() {
 	cd ${MY_P}
+
+	use amd64 && multilib_toolchain_setup x86
 
 	insinto /usr/include
 	doins    libSMT/include/SMT.h
