@@ -2,6 +2,7 @@ inherit multilib
 
 MY_P=stantum-0.5.29-mdk10.1
 
+EAPI="2"
 DESCRIPTION="Stantum SDK CD_0.5.29_MDK10.1"
 HOMEPAGE="http://www.stantum.com"
 SRC_URI="http://pinky.cheepee.homedns.org/~cipi/${MY_P}.tar.bz2"
@@ -11,6 +12,7 @@ SLOT="0"
 KEYWORDS="x86 amd64"
 IUSE="X doc examples multilib"
 
+# TODO: fix deps for X & opengl on x86 branch
 DEPEND="virtual/libusb:0
 	amd64? (
 		app-emulation/emul-linux-x86-baselibs
@@ -18,10 +20,9 @@ DEPEND="virtual/libusb:0
 		   app-emulation/emul-linux-x86-xlibs[opengl]
 		) )
 	)
-	!amd64? (
+	x86? (
 		examples? ( X? ( virtual/opengl ) )
-	)
-"
+	)"
 RDEPEND="${DEPEND}"
 
 QA_TEXTRELS="usr/lib32/libSMT.so"
