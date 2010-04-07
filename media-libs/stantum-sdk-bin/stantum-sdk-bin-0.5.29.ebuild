@@ -9,8 +9,7 @@ SRC_URI="http://pinky.cheepee.homedns.org/~cipi/${MY_P}.tar.bz2"
 LICENSE="Stantum"
 SLOT="0"
 KEYWORDS="x86 amd64"
-IUSE="doc multilib"
-# IUSE="doc examples multilib"
+IUSE="doc examples multilib"
 
 DEPEND="virtual/libusb:0
 	amd64? (
@@ -37,6 +36,8 @@ src_install() {
 		dohtml -r Documentation/Reference
 	fi
 
-	# if use examples ; then
-	# fi
+	if use examples ; then
+		dobin libSMT/bin/linux/HelloCursors
+		dobin libSMT/bin/linux/Circles
+	fi
 }
