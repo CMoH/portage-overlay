@@ -34,7 +34,7 @@ src_install() {
 
 	if use doc ; then
 		dodoc Documentation/Manual.pdf
-		dohtml Documentation/Reference
+		dohtml -r Documentation/Reference
 	fi
 
 	# if use examples ; then
