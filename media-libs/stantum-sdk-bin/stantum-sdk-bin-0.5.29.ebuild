@@ -36,7 +36,6 @@ src_install() {
 	doins    libSMT/include/SMT.h
 
 	dolib.so libSMT/bin/linux/libSMT.so
-	dolib    libSMT/lib/libSMT.lib
 
 	if use doc ; then
 		dodoc Documentation/Manual.pdf
