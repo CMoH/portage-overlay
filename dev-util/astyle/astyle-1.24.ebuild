@@ -37,6 +37,7 @@ src_compile() {
 }
 
 src_install() {
+	dohtml doc/*.html
 	cd build/gcc
 
 	if use debug ; then
@@ -66,5 +67,4 @@ src_install() {
 		dobin bin/astyle || die "install bin failed"
 		dolib.a bin/libastyle.a || die "install static lib failed"
 	fi
-	dohtml doc/*.html
 }
