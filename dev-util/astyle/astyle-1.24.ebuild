@@ -10,7 +10,7 @@ LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS="~alpha amd64 ~ppc ~ppc64 ~sparc x86"
 
-IUSE="debug java libs"
+IUSE="doc debug java libs"
 
 RDEPEND="java? ( >=virtual/jdk-1.6 )"
 
@@ -37,9 +37,11 @@ src_compile() {
 }
 
 src_install() {
-	dohtml doc/*.html
-	cd build/gcc
+	if use doc ; then
+		dohtml doc/*.html
+	fi
 
+	cd build/gcc
 	if use debug ; then
 		newbin bin/astyled astyle || die "install debug bin failed"
 		newlib.a bin/libastyled.a libastyle.a  \
