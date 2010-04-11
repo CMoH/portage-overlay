@@ -7,9 +7,9 @@ SLOT="0"
 KEYWORDS="x86 amd64"
 IUSE="doc test"
 
-RDEPEND="dev-libs/boost
-	test? ( >=dev-util/cppunit-1.8.0 )"
+RDEPEND="dev-libs/boost"
 DEPEND="${RDEPEND}
+	test? ( >=dev-util/cppunit-1.8.0 )
 	doc? ( app-doc/doxygen )"
 
 src_install() {

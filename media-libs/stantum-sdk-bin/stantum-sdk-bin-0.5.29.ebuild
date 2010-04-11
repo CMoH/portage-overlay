@@ -1,8 +1,9 @@
+EAPI="2"
+
 inherit multilib
 
 MY_P=stantum-0.5.29-mdk10.1
 
-EAPI="2"
 DESCRIPTION="Stantum SDK CD_0.5.29_MDK10.1"
 HOMEPAGE="http://www.stantum.com"
 SRC_URI="http://pinky.cheepee.homedns.org/~cipi/${MY_P}.tar.bz2"

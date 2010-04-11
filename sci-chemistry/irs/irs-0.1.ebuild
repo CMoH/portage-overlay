@@ -8,15 +8,15 @@ HOMEPAGE="http://irs.cheepee.homedns.org"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="amd64 x86"
-IUSE="qt3 doc test"
+IUSE="qt4 doc test"
 
 RDEPEND="dev-libs/boost
 	dev-libs/libosstuff
 	sci-chemistry/openbabel
 	sci-mathematics/gmm
-	qt3? ( <x11-libs/qt-4 )
-    test? ( >=dev-util/cppunit-1.8.0 )"
+	qt4? ( x11-libs/qt-gui )"
 DEPEND="${RDEPEND}
+	test? ( >=dev-util/cppunit-1.8.0 )
 	doc? ( app-doc/doxygen )"
 
 src_compile() {
@@ -38,4 +38,3 @@ src_install() {
 		dohtml -V -r doc/html
 	fi
 }
-

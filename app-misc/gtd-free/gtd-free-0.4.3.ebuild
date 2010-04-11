@@ -30,27 +30,27 @@ S=${WORKDIR}
 # }
 
 src_unpack() {
-	cp ${DISTDIR}/${BINARY} ${S}
+	cp "${DISTDIR}/${BINARY}" "${S}"
 }
 
 src_install() {
 	local DIR=/opt/gtd-free
-	cd ${WORKDIR}
+	cd "${WORKDIR}"
 
 	einfo "Copying files"
 	insinto ${DIR}
 	doins ${BINARY}
-	doins ${FILESDIR}/gtd-free.png
+	doins "${FILESDIR}"/gtd-free.png
 
 	insinto ${DIR}/bin
-	doins ${FILESDIR}/gtd-free ${D}/${DIR}/bin
+	doins "${FILESDIR}"/gtd-free "${D}"/${DIR}/bin
 
 	insinto /usr/share/applications
-	doins ${FILESDIR}/gtd-free.desktop
+	doins "${FILESDIR}"/gtd-free.desktop
 
 	einfo "Setting permissions"
-	chmod 755 ${D}/${DIR}/bin/* || die
-	chmod 644 ${D}/${DIR}/*.jar || die
+	chmod 755 "${D}"/${DIR}/bin/* || die
+	chmod 644 "${D}"/${DIR}/*.jar || die
 
 # TODO see if GTD has some docs to be installedinformation:
 	# einfo "Installing documentation"

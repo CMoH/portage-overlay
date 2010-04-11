@@ -11,7 +11,7 @@ RDEPEND="net-print/cups"
 DEPEND="${RDEPEND}"
 
 src_install() {
-	dodoc COPYING README SPECS THANKS
+	dodoc README SPECS THANKS
 	dobin bin/Release/lbp800 lbp800-print foo2lbp800-wrapper
 
 	exeinto /usr/lib/cups/backend

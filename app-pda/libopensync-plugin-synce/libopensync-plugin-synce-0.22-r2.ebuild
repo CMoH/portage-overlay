@@ -22,7 +22,7 @@ RDEPEND="${DEPEND}"
 src_unpack() {
 	unpack ${A}
 	cd "${S}"
-	
+
 	#patch wall werror
 	epatch "${FILESDIR}/${P}-warning.patch"
 	epatch "${FILESDIR}/${P}-broken-pipe.patch"
@@ -31,5 +31,5 @@ src_unpack() {
 
 src_install() {
 	emake DESTDIR="${D}" install || die "emake install failed"
-	dodoc AUTHORS ChangeLog COPYING NEWS README
+	dodoc AUTHORS ChangeLog NEWS README
 }

@@ -62,37 +62,37 @@ src_unpack() {
 	for file in ktoolbar emulator mekeytool prefs utils wscompile defaultdevice; do
 		sed -i -e \
 			"s@pathtowtk=\$@pathtowtk=\`java-config --jdk-home\`\"/bin/\"@" \
-			${WORKDIR}/bin/${file} || die
+			"${WORKDIR}"/bin/${file} || die
 	done
 
-	cd ${S}/bin
+	cd "${S}"/bin
 	rm -f activation.jar mail.jar xsdlib.jar
 
 }
 
 src_compile() {
-	epatch ${FILESDIR}/java-config.patch
+	epatch "${FILESDIR}"/java-config.patch
 }
 
 src_install() {
 
 	local DIR=/opt/${P}
-	cd ${WORKDIR}
+	cd "${WORKDIR}"
 
 	einfo "Copying files"
 	dodir ${DIR}
-	cp -r j2mewtk_template bin lib wtklib ${D}/${DIR}
-	use examples && cp -r apps ${D}/${DIR}
+	cp -r j2mewtk_template bin lib wtklib "${D}"/${DIR}
+	use examples && cp -r apps "${D}"/${DIR}
 
 	einfo "Setting permissions"
-	chmod 755 ${D}/${DIR}/bin/* || die
-	chmod 644 ${D}/${DIR}/bin/*.jar || die
+	chmod 755 "${D}"/${DIR}/bin/* || die
+	chmod 644 "${D}"/${DIR}/bin/*.jar || die
 
 	einfo "Installing documentation"
 	dohtml *.html
 	use doc && java-pkg_dohtml -r docs/*
 
-	cd ${D}/${DIR}/bin
+	cd "${D}"/${DIR}/bin
 	java-pkg_jar-from sun-jaf activation.jar
 	java-pkg_jar-from sun-javamail mail.jar
 	java-pkg_jar-from xsdlib xsdlib.jar
@@ -100,9 +100,9 @@ src_install() {
 	einfo "Registering jar files"
 	# The zip files are somehow broken and python zip handling errors on them
 	JAVA_PKG_STRICT= java-pkg_regjar \
-		${D}${DIR}/lib/*.jar \
-		${D}${DIR}/wtklib/kenv.zip \
-		${D}${DIR}/wtklib/*.jar
+		"${D}"${DIR}/lib/*.jar \
+		"${D}"${DIR}/wtklib/kenv.zip \
+		"${D}"${DIR}/wtklib/*.jar
 
 	dodir /usr/bin
 	dosym ${DIR}/bin/ktoolbar /usr/bin/ktoolbar

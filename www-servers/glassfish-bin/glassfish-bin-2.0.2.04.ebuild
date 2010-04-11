@@ -67,7 +67,7 @@ src_install() {
 	if use cluster; then
 		setupfile="setup-cluster.xml"
 	else
-		setupfile="setup.xml" 
+		setupfile="setup.xml"
 	fi
 
 # The ant setup writes 2 files into the home directory of the installing user.
@@ -96,7 +96,7 @@ src_install() {
 	cp -pPR ${GLASSFISH_WORKDIR}/* "${D}"${GLASSFISH_INSTALL_BASE}
 	chmod -R 775 "${D}"${GLASSFISH_INSTALL_BASE}
 
-	local envd_dir="${D}/etc/env.d/" 
+	local envd_dir="${D}/etc/env.d/"
 	mkdir -p "${envd_dir}"
 	echo "PATH=${GLASSFISH_INSTALL_BASE}/bin" > "${envd_dir}"${GLASSFISH_ENVD_FILE}
 	echo "GLASSFISH_HOME=${GLASSFISH_INSTALL_BASE}" >> "${envd_dir}"${GLASSFISH_ENVD_FILE}
@@ -105,11 +105,11 @@ src_install() {
 	Glassfish Application Server has been installed using the glassfish
 	user and glassfish group.  To use Glassfish as another user, add the
 	glassfish group to the user.
-	
+
 	To use the Glassfish commands, do 'source /etc/profile'.  This will
 	add the ${GLASSFISH_INSTALL_BASE}/bin to your PATH and create the
 	GLASSFISH_HOME environment variable as ${GLASSFISH_INSTALL_BASE}.
-	
+
 	To get started with Glassfish, see the Quick Start Guide at:
 	https://glassfish.dev.java.net/downloads/quickstart/index.html
 

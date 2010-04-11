@@ -12,8 +12,8 @@ DEPEND="virtual/emacs"
 SITEFILE=50ini-mode-gentoo.el
 
 src_unpack() {
-	mkdir ${S}
-	cp ${DISTDIR}/ini-mode.el ${S}/
+	mkdir "${S}"
+	cp "${DISTDIR}"/ini-mode.el "${S}"/
 }
 
 src_compile() {
@@ -21,7 +21,6 @@ src_compile() {
 }
 
 src_install() {
-	elisp-install ${PN} *.el *.elc
-	elisp-site-file-install ${FILESDIR}/${SITEFILE}
+	elisp-install "${PN}" *.el *.elc
+	elisp-site-file-install "${FILESDIR}/${SITEFILE}"
 }
-

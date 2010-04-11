@@ -43,5 +43,5 @@ src_install() {
 	dodoc README NEWS THANKS AUTHORS BUGS ChangeLog
 	dodoc doc/README* doc/atm*
 
-	dosym ${D}/usr/sbin/br2684ctl /sbin/br2684ctl
+	dosym "${D}"/usr/sbin/br2684ctl /sbin/br2684ctl
 }

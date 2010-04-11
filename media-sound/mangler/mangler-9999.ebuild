@@ -17,14 +17,17 @@ IUSE="alsa pulseaudio"
 RDEPEND="dev-cpp/gtkmm:2.4
 	media-libs/speex
 	media-sound/gsm
-	pulseaudio? media-sound/pulseaudio"
+	pulseaudio? ( media-sound/pulseaudio )"
 DEPEND="${DEPEND}
 	dev-util/pkgconfig"
 
 src_unpack() {
 	subversion_src_unpack
-	cd ${S} && epatch ${FILESDIR}/autoconf-failure.patch
-	cd ${S} && autoreconf
+}
+
+src_prepare() {
+	epatch "${FILESDIR}"/autoconf-failure.patch
+	eautoreconf
 }
 
 src_configure() {

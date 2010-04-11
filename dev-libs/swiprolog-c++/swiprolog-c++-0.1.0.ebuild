@@ -9,7 +9,7 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="x86 ~amd64"
 IUSE=""
-DEPEND=">=dev-lang/swi-prolog-lite-4.0.9
+DEPEND=">=dev-lang/swi-prolog-4.0.9
 	dev-libs/libxslt"
 
 # from the requirements; DocBook may be fuzzy
