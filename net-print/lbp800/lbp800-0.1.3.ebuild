@@ -1,6 +1,6 @@
 DESCRIPTION="CANON LBP-800 Linux driver"
 HOMEPAGE="http://www.veneto.com/lbp800/lbp800.html"
-SRC_URI="http://www.cheepee.homedns.org/~cipi/lbp800/${P}.tar.gz"
+SRC_URI="http://www.cheepee.homedns.org/~cipi/portage/distfiles/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
