@@ -22,7 +22,7 @@ DEPEND="virtual/libusb:0
 		) )
 	)
 	x86? (
-		examples? ( X? ( virtual/opengl ) )
+		examples? ( X? ( virtual/opengl virtual/glu ) )
 	)"
 RDEPEND="${DEPEND}"
 
