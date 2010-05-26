@@ -5,6 +5,7 @@
 EAPI="2"
 
 inherit eutils
+inherit flag-o-matic
 
 DESCRIPTION="An OCR Engine that was developed at HP and now at Google"
 HOMEPAGE="http://code.google.com/p/tesseract-ocr/"
