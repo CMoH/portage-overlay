@@ -11,7 +11,7 @@ SRC_URI="http://downloads.sourceforge.net/project/dbus-cxx/dbus-cxx/0.7.0/dbus-c
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~x86"
-IUSE="doc examples hal tools"
+IUSE="debug doc examples hal tools"
 
 RDEPEND=">=sys-apps/dbus-1.1
 	dev-util/pkgconfig
@@ -25,9 +25,11 @@ DEPEND="${RDEPEND}
 src_configure() {
 #			$(use_enable examples) \
 
-	econf 	$(use_enable doc) \
-			$(use_enable hal) \
-			$(use_enable tools)
+	econf \
+		$(use_enable debug debug-output) \
+		$(use_enable doc) \
+		$(use_enable hal) \
+		$(use_enable tools)
 }
 
 src_compile() {
