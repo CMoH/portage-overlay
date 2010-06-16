@@ -23,10 +23,17 @@ DEPEND="${RDEPEND}
 	doc? ( app-doc/doxygen )"
 
 src_configure() {
+
+# apparently even --disable-debug-output enables the debug output :)
+	EXTRA_CONF=""
+	if use debug; then
+		EXTRA_CONF="--enable-debug-output"
+	fi
+
 #			$(use_enable examples) \
 
 	econf \
-		$(use_enable debug debug-output) \
+		$(EXTRA_CONF) \
 		$(use_enable doc) \
 		$(use_enable hal) \
 		$(use_enable tools)
