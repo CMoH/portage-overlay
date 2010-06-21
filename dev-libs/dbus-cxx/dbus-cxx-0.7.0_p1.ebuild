@@ -2,11 +2,16 @@
 
 EAPI="2"
 
+inherit eutils autotools
+
 DESCRIPTION="D-Bus bindings for C++ from the dbus-cxx project"
 HOMEPAGE="http://dbus-cxx.sourceforge.net/index.html"
 
-SRC_URI="http://downloads.sourceforge.net/project/dbus-cxx/dbus-cxx/0.7.0/dbus-cxx-0.7.0.tar.gz"
-# SRC_URI="mirrors://sourceforge/${PN}/${P}.tar.gz"
+MY_P="dbus-cxx-0.7.0"
+MY_S=${WORKDIR}/${MY_P}
+
+SRC_URI="http://downloads.sourceforge.net/project/dbus-cxx/dbus-cxx/0.7.0/${MY_P}.tar.gz"
+# SRC_URI="mirrors://sourceforge/${PN}/${MY_P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -22,8 +27,13 @@ DEPEND="${RDEPEND}
 	dev-libs/boost
 	doc? ( app-doc/doxygen )"
 
-src_configure() {
+src_unpack() {
+	unpack ${A}
+	cd "${MY_S}"
+	epatch "${FILESDIR}/nonblock_on_no_reply.patch"
+}
 
+src_configure() {
 # apparently even --disable-debug-output enables the debug output :)
 	EXTRA_CONF=""
 	if use debug; then
@@ -32,7 +42,7 @@ src_configure() {
 
 #			$(use_enable examples) \
 
-	econf \
+	cd ${MY_S} && econf \
 		${EXTRA_CONF} \
 		$(use_enable doc) \
 		$(use_enable hal) \
@@ -40,6 +50,7 @@ src_configure() {
 }
 
 src_compile() {
+	cd ${MY_S}
 	emake || die "make failed"
 
 	if use doc; then
@@ -53,6 +64,7 @@ src_compile() {
 # }
 
 src_install() {
+	cd ${MY_S}
 	emake DESTDIR="${D}" install || die "make install failed"
 	dodoc AUTHORS COPYING INSTALL NEWS README TODO
 	if use doc; then
