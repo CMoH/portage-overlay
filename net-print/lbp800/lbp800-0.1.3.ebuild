@@ -16,6 +16,7 @@ src_install() {
 
 	exeinto /usr/lib/cups/backend
 	doexe bin/Release/parcapt
+	dosym /usr/lib/cups/backend/parcapt /usr/libexec/cups/backend
 
 	insinto /usr/share/ppd/custom/
 	doins ppd/Canon-LBP-800.ppd
