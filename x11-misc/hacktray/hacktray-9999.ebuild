@@ -20,7 +20,5 @@ src_configure() {
 }
 
 src_install() {
-	# TODO: wouldn't it be better if we had an install target made by qmake?
-	exeinto usr/bin
-	doexe HackTray
+	emake DESTDIR="${D}" INSTALL_ROOT="${D}" install
 }
