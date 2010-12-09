@@ -7,6 +7,7 @@ inherit distutils
 
 EGIT_REPO_URI="git://git.openembedded.org/bitbake.git"
 EGIT_BRANCH="1.10"
+KEYWORDS="~amd64 ~x86"
 inherit git
 
 DESCRIPTION="package management tool for OpenEmbedded"
