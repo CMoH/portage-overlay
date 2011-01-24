@@ -23,7 +23,7 @@ SRC_URI="ftp://ftp.lyx.org/pub/lyx/devel/lyx-2.0/beta3/lyx-2.0.0beta3.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="alpha amd64 hppa ia64 ~ppc ~ppc64 sparc x86"
+KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86"
 IUSE="cups debug nls latex monolithic-build html rtf dot docbook dia subversion rcs svg"
 
 LANGS="ar ca cs de el en es eu fi fr gl he hu id it ja nb nn pl pt ro ru sk tr uk zh_CN zh_TW"
