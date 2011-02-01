@@ -25,10 +25,10 @@ src_unpack() {
 	subversion_src_unpack
 }
 
-src_prepare() {
-	epatch "${FILESDIR}"/autoconf-failure.patch
-	eautoreconf
-}
+# src_prepare() {
+# 	#epatch "${FILESDIR}"/autoconf-failure.patch
+# 	eautoreconf
+# }
 
 src_configure() {
 	local myconf="$(use_with alsa) $(use_with pulseaudio)"
