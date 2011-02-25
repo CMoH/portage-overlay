@@ -10,7 +10,7 @@ SLOT="0"
 KEYWORDS="~alpha amd64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86"
 IUSE=""
 
-RDEPEND="dev-python/gnome15
+RDEPEND="=app-misc/gnome15-0.4.1
 		 dev-python/python-uinput"
 DEPEND="${RDEPEND}"
 
