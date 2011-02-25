@@ -8,11 +8,12 @@ SRC_URI="http://www.tanktarta.pwp.blueyonder.co.uk/gnome15/${P}.tar.gz"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~alpha amd64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86"
-IUSE=""
+IUSE="cairo"
 
 OPT_DEPEND="dev-python/setproctitle
 		 dev-python/vobject
 		 dev-python/pyalsa
+cairo? ( x11-misc/cairo-clock )
 "
 RDEPEND="dev-python/pygtk
 		 dev-python/dbus-python
