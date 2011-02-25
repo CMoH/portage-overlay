@@ -1,6 +1,5 @@
-EAPI=2
-
-PYTHON_DEPEND="2"
+EAPI="3"
+SUPPORT_PYTHON_ABIS="1"
 
 DESCRIPTION="Gnome tools for the Logitech G Series Keyboards And Z-10 Speakers"
 HOMEPAGE="http://www.tanktarta.pwp.blueyonder.co.uk/gnome15/index.html"
@@ -21,10 +20,21 @@ RDEPEND="dev-python/pygtk
 		 dev-python/pycairo
 		 dev-python/imaging
 		 dev-python/python-xlib
-${OPT_DEPEND}
-"
+		 dev-python/librsvg-python
+		 dev-python/pyalsaaudio
+		 dev-python/feedparser
+${OPT_DEPEND}"
 DEPEND="${RDEPEND}"
 
-# src_install() {
-# 	emake DESTDIR="${D}" install || die "emake install failed"
-# }
+src_install() {
+	emake DESTDIR="${D}" install
+}
+
+pkg_postinst() {
+	python_mod_optimize ${PN}
+}
+
+pkg_postrm() {
+	python_mod_cleanup ${PN}
+}
+
