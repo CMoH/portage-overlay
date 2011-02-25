@@ -10,7 +10,7 @@ S=${WORKDIR}/${MY_P}
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~alpha amd64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86"
-IUSE="dbus"
+IUSE=""
 
 RDEPEND="=app-misc/gnome15-0.4.1
 		 sci-libs/fftw:3.0

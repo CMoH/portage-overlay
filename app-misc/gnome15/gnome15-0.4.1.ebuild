@@ -8,7 +8,7 @@ SRC_URI="http://www.tanktarta.pwp.blueyonder.co.uk/gnome15/${P}.tar.gz"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~alpha amd64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86"
-IUSE="dbus"
+IUSE=""
 
 OPT_DEPEND="dev-python/setproctitle
 		 dev-python/vobject
