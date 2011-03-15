@@ -1,9 +1,13 @@
 EAPI="3"
 SUPPORT_PYTHON_ABIS="1"
 
+inherit bzr
+
 DESCRIPTION="Gnome tools for the Logitech G Series Keyboards And Z-10 Speakers"
 HOMEPAGE="http://www.tanktarta.pwp.blueyonder.co.uk/gnome15/index.html"
-SRC_URI="http://www.tanktarta.pwp.blueyonder.co.uk/gnome15/${P}.tar.gz"
+
+EBZR_REPO_URI="lp:gnome15"
+# SRC_URI="http://www.tanktarta.pwp.blueyonder.co.uk/gnome15/${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -24,7 +28,6 @@ RDEPEND="dev-python/pygtk
 		 dev-python/librsvg-python
 		 dev-python/pyalsaaudio
 		 dev-python/feedparser
-		 dev-python/python-uinput
 ${OPT_DEPEND}"
 DEPEND="${RDEPEND}"
 
