@@ -11,7 +11,7 @@ IUSE="ayatana g15d g19d gnome lg4l-module pulseaudio systray themes"
 
 DEPEND=""
 RDEPEND="      =app-misc/gnome15-core-${PV}
-ayatana?     ( =app-misc/gnome15-indicator-${PV}
+ayatana?     ( =app-misc/gnome15-indicator-${PV} )
 g15d?        ( =app-misc/gnome15-sandbox-plugins-${PV} )
 g19d?        ( =app-misc/g19d-${PV} )
 gnome?       ( =app-misc/gnome15-gnome-plugins-${PV}
