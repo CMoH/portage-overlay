@@ -1,7 +1,7 @@
 EAPI="3"
 SUPPORT_PYTHON_ABIS="1"
 
-inherit autotools bzr
+inherit autotools bzr # python
 
 DESCRIPTION="Gnome tools for the Logitech G Series Keyboards And Z-10 Speakers"
 HOMEPAGE="http://www.tanktarta.pwp.blueyonder.co.uk/gnome15/index.html"
@@ -46,12 +46,12 @@ src_install() {
 	cd ${MY_SUBPACKAGE} && emake DESTDIR="${D}" install || die "emake install failed"
 }
 
-pkg_postinst() {
-	python_mod_optimize ${PN}
-}
+# pkg_postinst() {
+# 	python_mod_optimize ${PN}
+# }
 
-pkg_postrm() {
-	python_mod_cleanup ${PN}
-}
+# pkg_postrm() {
+# 	python_mod_cleanup ${PN}
+# }
 
 
