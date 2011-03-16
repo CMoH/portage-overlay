@@ -1,13 +1,13 @@
 EAPI="3"
 SUPPORT_PYTHON_ABIS="1"
 
-inherit bzr
+inherit autotools bzr
 
 DESCRIPTION="Gnome tools for the Logitech G Series Keyboards And Z-10 Speakers"
 HOMEPAGE="http://www.tanktarta.pwp.blueyonder.co.uk/gnome15/index.html"
 
-EBZR_REPO_URI="lp:gnome15"
-# SRC_URI="http://www.tanktarta.pwp.blueyonder.co.uk/gnome15/${P}.tar.gz"
+#EBZR_REPO_URI="lp:gnome15"
+EBZR_REPO_URI="/home/cipi/src/g19/gnome15"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -31,6 +31,14 @@ RDEPEND="dev-python/pygtk
 ${OPT_DEPEND}"
 DEPEND="${RDEPEND}"
 
+src_prepare() {
+	cd gnome15 && eautoreconf
+}
+
+src_configure() {
+	cd gnome15 && econf --enable-indicator
+}
+
 src_install() {
 	emake DESTDIR="${D}" install || die "emake install failed"
 }
@@ -42,4 +50,5 @@ pkg_postinst() {
 pkg_postrm() {
 	python_mod_cleanup ${PN}
 }
+
 
