@@ -1,7 +1,7 @@
 EAPI="3"
 
-DESCRIPTION="WYSIWYM frontend for LaTeX, DocBook, etc."
-HOMEPAGE="http://www.tanktarta.pwp.blueyonder.co.uk/gnome15/index.html"
+DESCRIPTION="Based on Impulse screenlet, provides a specturm analyser plugin for Gnome15"
+HOMEPAGE="http://www.gnome15.org/"
 SRC_URI="http://www.tanktarta.pwp.blueyonder.co.uk/gnome15/gnome15-impulse15-${PV}.tar.gz"
 
 MY_P="gnome15-impulse15-${PV}"

@@ -1,8 +1,9 @@
 EAPI="3"
+SUPPORT_PYTHON_ABIS="1"
 
 inherit autotools bzr # python
 
-DESCRIPTION="Based on Impulse screenlet, provides a specturm analyser plugin for Gnome15"
+DESCRIPTION="Gnome15 desktop service using a system tray icon."
 HOMEPAGE="http://www.gnome15.org/"
 
 #EBZR_REPO_URI="lp:gnome15"
@@ -13,12 +14,11 @@ SLOT="0"
 KEYWORDS="~alpha amd64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86"
 IUSE=""
 
-RDEPEND="=app-misc/gnome15-core-9999
-		 sci-libs/fftw:3.0
-		 media-sound/pulseaudio"
+RDEPEND="=app-misc/gnome15-core-${PV}"
 DEPEND="${RDEPEND}"
 
-MY_SUBPACKAGE="gnome15-impulse15"
+
+MY_SUBPACKAGE="gnome15-systemtray"
 
 src_prepare() {
 	cd ${MY_SUBPACKAGE} && eautoreconf || die "eautoreconf failed"
@@ -39,3 +39,5 @@ src_install() {
 # pkg_postrm() {
 # 	python_mod_cleanup ${PN}
 # }
+
+

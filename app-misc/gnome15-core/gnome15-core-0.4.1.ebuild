@@ -5,7 +5,7 @@ MY_PN="gnome15"
 MY_P="${MY_PN}-${PV}"
 
 DESCRIPTION="Gnome tools for the Logitech G Series Keyboards And Z-10 Speakers"
-HOMEPAGE="http://www.tanktarta.pwp.blueyonder.co.uk/gnome15/index.html"
+HOMEPAGE="http://www.gnome15.org/"
 SRC_URI="http://www.tanktarta.pwp.blueyonder.co.uk/gnome15/${MY_P}.tar.gz"
 
 LICENSE="GPL-3"

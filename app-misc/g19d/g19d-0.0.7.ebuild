@@ -1,8 +1,8 @@
 EAPI="3"
 SUPPORT_PYTHON_ABIS="1"
 
-DESCRIPTION="Gnome tools for the Logitech G Series Keyboards And Z-10 Speakers"
-HOMEPAGE="http://www.tanktarta.pwp.blueyonder.co.uk/gnome15/index.html"
+DESCRIPTION="A daemon was added to allow userspace access from the Gnome15 project."
+HOMEPAGE="http://www.gnome15.org/"
 SRC_URI="http://www.tanktarta.pwp.blueyonder.co.uk/gnome15/${P}.tar.gz"
 
 LICENSE="GPL-3"
