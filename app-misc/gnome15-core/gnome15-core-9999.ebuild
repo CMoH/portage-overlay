@@ -11,8 +11,8 @@ EBZR_REPO_URI="/home/cipi/src/g19/gnome15"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~alpha amd64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86"
-IUSE="cairo"
+KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86"
+IUSE="cairo lg4l-module"
 
 OPT_DEPEND="dev-python/setproctitle
 		 dev-python/vobject
@@ -28,6 +28,8 @@ RDEPEND="dev-python/pygtk
 		 dev-python/librsvg-python
 		 dev-python/pyalsaaudio
 		 dev-python/feedparser
+		 dev-python/pyinotify
+lg4l-module? ( dev-python/pyinputevent )
 ${OPT_DEPEND}"
 DEPEND="${RDEPEND}"
 
