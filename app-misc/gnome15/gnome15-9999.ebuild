@@ -31,16 +31,19 @@ RDEPEND="dev-python/pygtk
 ${OPT_DEPEND}"
 DEPEND="${RDEPEND}"
 
+
+MY_SUBPACKAGE="gnome15"
+
 src_prepare() {
-	cd gnome15 && eautoreconf
+	cd ${MY_SUBPACKAGE} && eautoreconf || die "eautoreconf failed"
 }
 
 src_configure() {
-	cd gnome15 && econf --enable-indicator
+	cd ${MY_SUBPACKAGE} && econf || die "econf failed"
 }
 
 src_install() {
-	emake DESTDIR="${D}" install || die "emake install failed"
+	cd ${MY_SUBPACKAGE} && emake DESTDIR="${D}" install || die "emake install failed"
 }
 
 pkg_postinst() {
