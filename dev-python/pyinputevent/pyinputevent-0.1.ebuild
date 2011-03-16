@@ -1,5 +1,5 @@
 EAPI="3"
-SUPPORT_PYTHON_ABIS="1"
+PYTHON_DEPEND="2"
 
 inherit distutils
 
@@ -14,3 +14,7 @@ IUSE=""
 
 RDEPEND=""
 DEPEND="${RDEPEND}"
+
+pkg_setup() {
+	python_set_active_version 2
+}
