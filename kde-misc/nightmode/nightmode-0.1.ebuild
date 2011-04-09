@@ -1,4 +1,4 @@
-EAPI=2
+EAPI="3"
 
 inherit kde4-base
 
