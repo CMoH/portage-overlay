@@ -1,9 +1,7 @@
-# Copyright 1999-2009 Gentoo Foundation
-# Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-devel/distcc/distcc-3.1-r4.ebuild,v 1.8 2009/10/19 21:09:13 aballier Exp $
+EAPI="3"
+PYTHON_DEPEND="2"
 
-EAPI="2"
-inherit eutils fdo-mime flag-o-matic multilib toolchain-funcs
+inherit eutils fdo-mime flag-o-matic multilib python toolchain-funcs
 
 DESCRIPTION="a program to distribute compilation of C code across several machines on a network"
 HOMEPAGE="http://distcc.org/"
@@ -11,25 +9,24 @@ SRC_URI="http://distcc.googlecode.com/files/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="alpha amd64 arm hppa ia64 ~mips ppc ppc64 s390 sh sparc x86 ~sparc-fbsd ~x86-fbsd"
+KEYWORDS="~alpha amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~sparc-fbsd ~x86-fbsd"
 IUSE="avahi gnome gtk hardened ipv6 selinux xinetd"
 
 RESTRICT="test"
 
-RDEPEND=">=dev-lang/python-2.4
-	dev-libs/popt
+RDEPEND="dev-libs/popt
 	avahi? ( >=net-dns/avahi-0.6[dbus] )
 	gnome? (
 		>=gnome-base/libgnome-2
 		>=gnome-base/libgnomeui-2
-		>=x11-libs/gtk+-2
+		x11-libs/gtk+:2
 		x11-libs/pango
 	)
 	gtk? (
-		>=x11-libs/gtk+-2
+		x11-libs/gtk+:2
 	)"
 DEPEND="${RDEPEND}
-	dev-util/pkgconfig"
+	virtual/pkgconfig"
 RDEPEND="${RDEPEND}
 	!net-misc/pump
 	>=sys-devel/gcc-config-1.4.1
@@ -42,6 +39,8 @@ DISTCC_VERBOSE="0"
 
 pkg_setup() {
 	enewuser distcc 240 -1 -1 daemon
+	python_set_active_version 2
+	python_pkg_setup
 }
 
 src_prepare() {
@@ -52,8 +51,11 @@ src_prepare() {
 	epatch "${FILESDIR}/${P}-freedesktop.patch"
 	# bug #258364
 	epatch "${FILESDIR}/${P}-python.patch"
+	# bug #351979
+	epatch "${FILESDIR}/${P}-argc-fix.patch"
 
-	epatch "${FILESDIR}/${P}-fix-slots.patch"
+#	epatch "${FILESDIR}/${P}-fix-slots.patch"
+	epatch "${FILESDIR}/${P}_state.patch"
 
 	sed -i -e "/PATH/s:\$distcc_location:${DCCC_PATH}:" pump.in || die
 
@@ -130,10 +132,13 @@ src_install() {
 	rm -rf "${D}/etc/default"
 	rm -f "${D}/etc/distcc/clients.allow"
 	rm -f "${D}/etc/distcc/commands.allow.sh"
-	prepalldocs
+
+	python_convert_shebangs -r $(python_get_version) "${ED}"
+	sed -e "s:${EPREFIX}/usr/bin/python:$(PYTHON -a):" -i "${ED}usr/bin/pump" || die "sed failed"
 }
 
 pkg_postinst() {
+	python_mod_optimize include_server
 	use gnome && fdo-mime_desktop_database_update
 
 	if use ipv6; then
@@ -165,5 +170,6 @@ pkg_postinst() {
 }
 
 pkg_postrm() {
+	python_mod_cleanup include_server
 	use gnome && fdo-mime_desktop_database_update
 }
