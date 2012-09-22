@@ -5,8 +5,9 @@ index 964cba9..3eb5c6f 100644
 @@ -549,7 +549,6 @@ msgid ""
  "%s until is fully charged."
  msgstr ""
- "%s\n"
+-"%s\n"
 -"Your %s is charging (%i%%)\n"
++"%s (%i%%)\n"
  "%s until is fully charged."
  
  #: ../src/xfpm-battery.c:232 ../src/xfpm-battery.c:268
