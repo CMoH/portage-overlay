@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/xfce-extra/xfce4-power-manager/xfce4-power-manager-1.2.0.ebuild,v 1.7 2012/09/05 10:52:53 ssuominen Exp $
 
-EAPI=4
+EAPI=5
 inherit flag-o-matic linux-info xfconf
 
 DESCRIPTION="Power manager for the Xfce desktop environment"
