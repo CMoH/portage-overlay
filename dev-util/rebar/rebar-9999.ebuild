@@ -2,7 +2,7 @@ EAPI=3
 
 EGIT_REPO_URI="git://github.com/basho/rebar.git"
 
-inherit git
+inherit git-2
 
 DESCRIPTION="A sophisticated build-tool for Erlang projects that follows OTP principles."
 HOMEPAGE="https://github.com/basho/rebar/"
