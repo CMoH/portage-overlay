@@ -20,8 +20,8 @@ DEPEND=""
 RDEPEND="${DEPEND}"
 
 src_install() {
-	dodir /boot/grub2/themes/icons/ || die
+	dodir /boot/grub/themes/icons/ || die
 
-	insinto /boot/grub2/themes/icons/
+	insinto /boot/grub/themes/icons/
 	doins icons/*.png
 }
