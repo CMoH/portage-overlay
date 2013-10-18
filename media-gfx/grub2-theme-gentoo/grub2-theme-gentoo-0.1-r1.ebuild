@@ -16,7 +16,7 @@ LICENSE="GPL-3"
 SLOT="0"
 IUSE=""
 
-DEPEND="=media-gfx/grub2-icons-${PV}"
+DEPEND="=media-gfx/grub2-icons-${PVR}"
 RDEPEND="${DEPEND}"
 
 src_install() {
