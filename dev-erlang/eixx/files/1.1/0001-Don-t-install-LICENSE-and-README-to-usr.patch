@@ -1,0 +1,24 @@
+From 91d5880345848b6e3b94100346fc8098e75f7a11 Mon Sep 17 00:00:00 2001
+From: Ciprian Ciubotariu <cheepeero@gmx.net>
+Date: Mon, 24 Mar 2014 01:30:14 +0200
+Subject: [PATCH] Don't install LICENSE and README to /usr
+
+---
+ Makefile.am | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Makefile.am b/Makefile.am
+index 85f44c4..846d68e 100644
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -29,6 +29,6 @@ EXTRA_DIST = README LICENSE LICENSE.header license.sh \
+              bootstrap
+ 
+ installdir = $(prefix)
+-install_DATA = README LICENSE
++#install_DATA = README LICENSE
+ 
+ .PHONY: docs doc
+-- 
+1.8.3.2
+

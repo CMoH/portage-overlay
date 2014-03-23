@@ -1,0 +1,30 @@
+From 436314658c961cc5c9a8f2c86747367a38eace77 Mon Sep 17 00:00:00 2001
+From: Ciprian Ciubotariu <cheepeero@gmx.net>
+Date: Sun, 23 Mar 2014 04:55:26 +0200
+Subject: [PATCH 1/2] Fix compile errors
+
+Add missing function boost::asio:error::make_error_code(timer_errors)
+---
+ include/eixx/util/async_wait_timeout.hpp | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/include/eixx/util/async_wait_timeout.hpp b/include/eixx/util/async_wait_timeout.hpp
+index baee539..37a12a7 100644
+--- a/include/eixx/util/async_wait_timeout.hpp
++++ b/include/eixx/util/async_wait_timeout.hpp
+@@ -31,6 +31,12 @@ namespace error {
+         return instance;
+     }
+ 
++    inline boost::system::error_code make_error_code(timer_errors e)
++    {
++      return boost::system::error_code(
++          static_cast<int>(e), get_timer_category());
++    }
++
+     static const boost::system::error_category& timer_category
+           = boost::asio::error::get_timer_category();
+ 
+-- 
+1.8.3.2
+

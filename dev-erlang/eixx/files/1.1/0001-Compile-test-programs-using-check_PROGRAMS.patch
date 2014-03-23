@@ -1,0 +1,36 @@
+From 83c0ebb66dc3f7426eacc850f8161f1dc53c54a9 Mon Sep 17 00:00:00 2001
+From: Ciprian Ciubotariu <cheepeero@gmx.net>
+Date: Mon, 24 Mar 2014 01:11:15 +0200
+Subject: [PATCH] Compile test programs using check_PROGRAMS
+
+This way the tests don't get installed on make install, and can be built
+using make check.
+---
+ src/Makefile.am  | 2 +-
+ test/Makefile.am | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/src/Makefile.am b/src/Makefile.am
+index 1b0718f..4b8bd4c 100644
+--- a/src/Makefile.am
++++ b/src/Makefile.am
+@@ -1,5 +1,5 @@
+ eixx_LTLIBRARIES = libeixx.la
+-bin_PROGRAMS = test_node
++check_PROGRAMS = test_node
+ 
+ eixx_hdrs1 =  alloc_pool.hpp \
+               alloc_pool_st.hpp \
+diff --git a/test/Makefile.am b/test/Makefile.am
+index e79e43a..9341e95 100644
+--- a/test/Makefile.am
++++ b/test/Makefile.am
+@@ -1,4 +1,4 @@
+-bin_PROGRAMS = test_eterm test_perf
++check_PROGRAMS = test_eterm test_perf
+ 
+ AM_CXXFLAGS = -I. -I$(srcdir)/../include $(BOOST_CPPFLAGS) \
+    			  -I$(ERLANG_LIB_DIR_erl_interface)/include \
+-- 
+1.8.3.2
+
