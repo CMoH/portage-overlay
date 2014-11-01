@@ -16,7 +16,7 @@ EGIT_REPO_URI="file:///home/cipi/src/nightmode"
 
 LICENSE="GPL-2"
 SLOT="4"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 DEPEND="$(add_kdebase_dep kwin)"
