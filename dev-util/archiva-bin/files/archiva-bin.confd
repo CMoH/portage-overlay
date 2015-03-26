@@ -1,0 +1,22 @@
+# Config file for /etc/init.d/archiva
+
+#
+# TODO: Port to run Jetty on
+#
+#ARCHIVA_PORT=8080
+
+#
+# TODO: Options to pass to Java when running Archiva.
+#
+#ARCHIVA_JAVA_OPTIONS="-Djava.awt.headless=true"
+
+#
+# TODO: Options to pass to Archiva application
+#
+#ARCHIVA_APP_OPTIONS=
+
+#
+# User
+#
+ARCHIVA_USER=archiva
+

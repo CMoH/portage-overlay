@@ -1,0 +1,52 @@
+#!/sbin/runscript
+
+PIDDIR="/run/archiva"
+PIDFILE="$PIDDIR/archiva.pid"
+
+depend() {
+    need net
+    use dns logger mysql postgresql
+}
+
+checkconfig() {
+    if [ ! -n "$ARCHIVA_USER" ] ; then
+        eerror "ARCHIVA_USER not configured"
+        return 1
+    fi
+    return 0
+}
+
+start() {
+    checkconfig || return 1
+
+    # simplify archiva start script for a gentoo system
+    BASEDIR=/opt/archiva
+
+    APP_NAME="archiva"
+    APP_LONG_NAME="Apache Archiva"
+
+    WRAPPER_CMD=$BASEDIR/bin/wrapper
+    WRAPPER_CONF="$BASEDIR/conf/wrapper.conf"
+    LOCKPROP="wrapper.lockfile=\"$LOCKFILE\""
+
+    mkdir -p "$PIDDIR"
+    chown "$ARCHIVA_USER" "$PIDDIR"
+
+    WRAPPER_CONF_OVERRIDES=""
+
+#    [ -n "$ARCHIVA_PORT" ] && WRAPPER_CONF_OVERRIDES="$WRAPPER_CONF_OVERRIDES wrapper.java.additional.10=-Djetty.port=$ARCHIVA_PORT"
+#    [ -n "$ARCHIVA_ARGS" ] && WRAPPER_CONF_OVERRIDES="$WRAPPER_CONF_OVERRIDES $ARCHIVA_ARGS"
+
+    ebegin "Starting ${SVCNAME}"
+    start-stop-daemon --start --quiet --background \
+        --pidfile $PIDFILE \
+        --user ${ARCHIVA_USER} \
+        --exec "$WRAPPER_CMD" -- "$WRAPPER_CONF" wrapper.syslog.ident=$APP_NAME wrapper.pidfile=\"$PIDFILE\" wrapper.daemonize=TRUE $LOCKPROP $WRAPPER_CONF_OVERRIDES
+    eend $?
+}
+
+stop() {
+    ebegin "Stopping ${SVCNAME}"
+    start-stop-daemon --stop --quiet --pidfile $PIDFILE
+    eend $?
+}

@@ -1,0 +1,17 @@
+/var/log/archiva/archiva.log /var/log/archiva/access_log {
+    compress
+    dateext
+    maxage 365
+    rotate 99
+    size=+4096k
+    notifempty
+    missingok
+    create 644
+    postrotate
+        [ -r /etc/conf.d/archiva ] && source /etc/conf.d/archiva
+        if [ -s /var/run/archiva/archiva.pid ]; then
+            JPID=`cat /var/run/archiva/archiva.pid`
+            test -n "`find /proc/$JPID -maxdepth 0 -user ${RUN_AS:-archiva} 2>/dev/null`" && kill -s ALRM $JPID || :
+        fi
+    endscript
+}
