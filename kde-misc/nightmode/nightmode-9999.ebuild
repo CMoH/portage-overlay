@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/kde-misc/nightmode/nightmode-0.3.ebuild,v 1.3 2012/04/19 04:46:58 maekke Exp $
 
-EAPI=4
+EAPI=5
 
 KDE_MINIMAL="4.8"
 inherit git-2 kde4-base
