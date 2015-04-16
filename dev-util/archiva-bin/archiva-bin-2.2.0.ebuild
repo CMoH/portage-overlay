@@ -72,4 +72,5 @@ src_install() {
 
 	fowners archiva:archiva \
 			/var/log/archiva "${DATA_DIR}" "${DATA_DIR}/conf" "${DATA_DIR}/data" "${DATA_DIR}/repositories" "${DATA_DIR}/temp"
+	fowners archiva:archiva "${DATA_DIR}/conf/archiva.xml"
 }
