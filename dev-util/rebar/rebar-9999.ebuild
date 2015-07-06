@@ -1,6 +1,6 @@
 EAPI=3
 
-EGIT_REPO_URI="git://github.com/basho/rebar.git"
+EGIT_REPO_URI="https://github.com/rebar/rebar.git"
 
 inherit git-2
 
