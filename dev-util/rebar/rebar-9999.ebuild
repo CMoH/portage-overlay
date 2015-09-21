@@ -1,6 +1,7 @@
 EAPI=3
 
 EGIT_REPO_URI="https://github.com/rebar/rebar.git"
+EGIT_BRANCH="master"
 
 inherit git-2
 
