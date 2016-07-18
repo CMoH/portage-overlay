@@ -1,0 +1,24 @@
+diff --git a/plugins/providers/virtualbox/driver/meta.rb b/plugins/providers/virtualbox/driver/meta.rb
+index 7aceb9f..0dd186d 100644
+--- a/plugins/providers/virtualbox/driver/meta.rb
++++ b/plugins/providers/virtualbox/driver/meta.rb
+@@ -61,6 +61,7 @@ module VagrantPlugins
+             "4.2" => Version_4_2,
+             "4.3" => Version_4_3,
+             "5.0" => Version_5_0,
++            "5.1" => Version_5_1,
+           }
+ 
+           if @@version.start_with?("4.2.14")
+diff --git a/plugins/providers/virtualbox/plugin.rb b/plugins/providers/virtualbox/plugin.rb
+index bf355bb..399747a 100644
+--- a/plugins/providers/virtualbox/plugin.rb
++++ b/plugins/providers/virtualbox/plugin.rb
+@@ -56,6 +56,7 @@ module VagrantPlugins
+       autoload :Version_4_2, File.expand_path("../driver/version_4_2", __FILE__)
+       autoload :Version_4_3, File.expand_path("../driver/version_4_3", __FILE__)
+       autoload :Version_5_0, File.expand_path("../driver/version_5_0", __FILE__)
++      autoload :Version_5_1, File.expand_path("../driver/version_5_1", __FILE__)
+     end
+ 
+     module Model
