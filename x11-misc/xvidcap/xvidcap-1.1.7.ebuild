@@ -1,6 +1,4 @@
-# Copyright 1999-2010 Gentoo Foundation
-# Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-misc/xvidcap/xvidcap-1.1.7.ebuild,v 1.4 2010/02/02 19:10:59 ssuominen Exp $
+EAPI=5
 
 GCONF_DEBUG=no
 inherit eutils autotools gnome2
