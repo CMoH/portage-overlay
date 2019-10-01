@@ -6,12 +6,12 @@ DESCRIPTION="Erlang C++ Interface"
 HOMEPAGE="http://dev.tm.cheepee.ro/projects/eixx https://github.com/saleyn/eixx.git"
 
 EGIT_REPO_URI="ssh://git@dev.tm.cheepee.ro/eixx.git"
-#EGIT_COMMIT="v1.4"
-EGIT_BRANCH="master"
+EGIT_COMMIT="v1.4"
+#EGIT_BRANCH="master"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="amd64"
 IUSE="doc test"
 
 RDEPEND=">=dev-libs/boost-1.65.0[threads]
