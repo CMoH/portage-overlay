@@ -5,8 +5,8 @@ inherit cmake-utils git-r3 eutils
 DESCRIPTION="Erlang C++ Interface"
 HOMEPAGE="http://dev.tm.cheepee.ro/projects/eixx https://github.com/saleyn/eixx.git"
 
-EGIT_REPO_URI="ssh://git@dev.tm.cheepee.ro/eixx.git"
-EGIT_COMMIT="v1.4"
+EGIT_REPO_URI="http://dev.tm.cheepee.ro/eixx.git"
+EGIT_COMMIT="v${PV}"
 #EGIT_BRANCH="master"
 
 LICENSE="Apache-2.0"
