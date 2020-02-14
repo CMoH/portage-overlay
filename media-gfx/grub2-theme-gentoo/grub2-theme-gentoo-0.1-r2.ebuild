@@ -1,6 +1,6 @@
 EAPI=4
 
-inherit git-2
+inherit git-r3
 
 DESCRIPTION="Grub2 theme for Gentoo systems"
 HOMEPAGE="https://github.com/CMoH/grub2-theme-gentoo"
