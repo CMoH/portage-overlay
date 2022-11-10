@@ -1,4 +1,4 @@
-EAPI=5
+EAPI=8
 
 inherit elisp
 
