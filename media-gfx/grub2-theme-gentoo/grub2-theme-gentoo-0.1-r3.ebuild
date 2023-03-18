@@ -1,11 +1,11 @@
-EAPI=5
+EAPI=8
 
 inherit git-r3
 
 DESCRIPTION="Grub2 theme for Gentoo systems"
 HOMEPAGE="https://github.com/CMoH/grub2-theme-gentoo"
 
-EGIT_REPO_URI="git://github.com/CMoH/grub2-theme-gentoo.git"
+EGIT_REPO_URI="https://github.com/CMoH/grub2-theme-gentoo.git"
 
 if [[ ${PV} != 9999* ]] ; then
 	EGIT_COMMIT="v${PV}"
